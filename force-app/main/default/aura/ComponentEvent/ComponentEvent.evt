@@ -1,0 +1,3 @@
+<aura:event type="COMPONENT" description="send data form child and handle on parent">
+    <aura:attribute name = "ContactData" type="Contact"/>
+</aura:event>

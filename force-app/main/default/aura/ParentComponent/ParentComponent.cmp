@@ -1,0 +1,21 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes">
+    <aura:attribute name="datalist" type="contact[]"/>
+    <aura:attribute name="columnslist" type="List"/>
+    <aura:handler name ="ComponentEvent" event="c:ComponentEvent" action="{!c.tableData}"/>
+    <!-- handlers-->
+    <aura:handler name="init" value="{! this }" action="{! c.doInit }"/>
+
+
+   
+    <!-- the container element determine the height of the datatable -->
+  <lightning:card iconName="standard:contact" title="Add a contact"> 
+      <div style="height: 300px">
+          <lightning:datatable
+                               keyField="id"
+                               data="{! v.datalist }"
+                               columns="{! v.columnslist }"
+                               hideCheckboxColumn="true"/>
+      </div>
+    </lightning:card>   
+    <c:ChildComponent/>
+</aura:component>

@@ -1,0 +1,67 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes">
+    <aura:attribute name = "contact" type = "Contact" default="{'sobjectType' : 'contact'}"/>
+    <aura:registerEvent name="ComponentEvent" type="c:ComponentEvent"/>
+    
+    	<lightning:card iconName="standard:contact" title="Add a contact">
+        <div class="slds-form-element ">
+            <div class="slds-form-element__control">
+                <div class="slds-grid slds-wrap">
+                    <div class="slds-p-around_x-small1 slds-m-top_medium slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_6-of-12">
+                        
+                            <div class="slds-form applicant-compact-form" aura:id="changeIt">
+                                <div class="applicant-header slds-border_bottom1 slds-p-around_xx-small">
+                                    <div class="set_header">First Applicant (You)</div>
+                                </div>
+                                
+                                <div class="slds-form-element slds-form-element_stacked">
+                                    <lightning:input label="First Name" aura:id="fieldcheck"
+                                                     required="true" placeholder="First Name" 
+                                                     value="{!v.contact.FirstName}"
+                                                     maxlength="40"
+                                                     class="no-abbr"/>
+                                </div>
+                                <div class="slds-form-element slds-form-element_stacked">
+                                    <lightning:input label="Last Name" aura:id="fieldcheck"
+                                                     required="true" placeholder="Last Name" 
+                                                     value="{!v.contact.LastName}"
+                                                     maxlength="40"
+                                                     class="no-abbr"/>
+                                </div>
+                                <div class="slds-form-element slds-form-element_stacked">
+                                    <lightning:input type="tel" label="Mobile Phone" aura:id="fieldcheck"
+                                                     required="true" placeholder="Phone" 
+                                                     value="{!v.contact.Phone}"
+                                                     pattern="([0-9]{10}|[+0-9]{12}|[0-9]{4} [0-9]{3} [0-9]{3}|[0-9]{2} [0-9]{4} [0-9]{4}|[0-9+]{3} [0-9]{3} [0-9]{3} [0-9]{3}|[0-9+]{3} [0-9]{1} [0-9]{4} [0-9]{4})"
+                                                     messageWhenPatternMismatch="Pattern should be 1234567890 or 1234 567 890 or 12 3456 7890 or +61123456789 or +61 123 456 789 or +61 1 2345 6789"
+                                                     class="no-abbr"/>
+                                </div>
+                                <div class="slds-form-element slds-form-element_stacked">
+                                    <lightning:input type="email" label="Email Address"  aura:id="fieldcheck"
+                                                     required="true" placeholder="Email" 
+                                                     pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{1,5})$"
+                                                     messageWhenPatternMismatch = "Please enter valid Email Id"
+                                                     value="{!v.contact.Email}"
+                                                     class="no-abbr"/>
+                                    
+                                </div>
+                                
+                            </div>
+                        
+                    </div>
+                </div>
+                    
+                    
+                </div>
+                
+                <div style="display: flow-root">
+                    <lightning:button class="slds-m-vertical_x-large continue-btn-style " variant="brand" 
+                                      label="SendToParent" title="Let's Begin" 
+                                      onclick="{! c.letsBegin }" />
+                </div>
+           
+        </div>
+    </lightning:card>
+  
+    
+    
+</aura:component>
